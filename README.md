@@ -211,18 +211,6 @@ Test backend health by navigating to `http://localhost:8000/health`.
 
 ---
 
-## Frontend Web Studio & Vercel Deployment
-
-The `/frontend` directory contains an interactive, single-page web studio featuring a before-after comparison slider, real-time health indicator, and drag-and-drop raster uploader.
-
-### Deploying Frontend to Vercel
-1. Import the `Meghdrishti` repository in your Vercel Dashboard.
-2. Set **Root Directory** to `frontend` (or keep root with existing `vercel.json`).
-3. Add Environment Variable:
-   - `MEGHDRISHTI_API_URL`: URL of your deployed FastAPI backend (e.g., `https://your-api.onrender.com`).
-4. Click **Deploy**.
-
----
 
 ## Team Credits
 
