@@ -1,6 +1,7 @@
 import os
 import io
 import base64
+import requests
 import torch
 import numpy as np
 import rasterio
@@ -18,21 +19,47 @@ app = FastAPI(title="SpA-GAN BAH 2026")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 gen_model = None
 head_model = None
 in_ch_global = 4
+
+def download_checkpoint_if_needed(ckpt_path: str):
+    """
+    Downloads the trained model checkpoint if it does not exist locally.
+    Uses the CHECKPOINT_URL environment variable (Hugging Face / Google Drive / Direct link).
+    """
+    if not os.path.exists(ckpt_path):
+        os.makedirs(os.path.dirname(ckpt_path), exist_ok=True)
+        checkpoint_url = os.getenv("CHECKPOINT_URL")
+        if checkpoint_url:
+            print(f"Downloading checkpoint from '{checkpoint_url}' to '{ckpt_path}'...")
+            try:
+                response = requests.get(checkpoint_url, stream=True, timeout=300)
+                response.raise_for_status()
+                with open(ckpt_path, "wb") as f:
+                    for chunk in response.iter_content(chunk_size=8192):
+                        if chunk:
+                            f.write(chunk)
+                print("Checkpoint downloaded successfully.")
+            except Exception as e:
+                print(f"Error downloading checkpoint from {checkpoint_url}: {e}")
+        else:
+            print(f"Warning: Checkpoint file '{ckpt_path}' not found and CHECKPOINT_URL env var is not set.")
 
 @app.on_event("startup")
 def load_models():
     global gen_model, head_model, in_ch_global
     
     ckpt_path = "checkpoints/best_psnr.pth"
+    download_checkpoint_if_needed(ckpt_path)
+    
     in_ch = 4
     state_dict = None
 
@@ -67,7 +94,12 @@ def serve_demo():
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "model": "SpA-GAN-BAH2026"}
+    return {
+        "status": "ok",
+        "model": "SpA-GAN-BAH2026",
+        "device": str(device),
+        "checkpoint_exists": os.path.exists("checkpoints/best_psnr.pth")
+    }
 
 @app.post("/predict")
 async def predict(
