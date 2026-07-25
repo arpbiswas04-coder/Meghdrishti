@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+rasterio
+torch
+torchvision
+timm
+pillow
+numpy
+kornia
+scikit-image

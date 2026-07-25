@@ -1,0 +1,59 @@
+# Model Checkpoints & Large Artifacts
+checkpoints/
+*.pth
+*.pt
+*.onnx
+*.bin
+pretrained_models/
+
+# Dataset & Output Directories
+data/
+results/
+output/
+test_images/
+RICE_DATASET/
+SEN12MSCR/
+*.tar.gz
+*.zip
+
+# Logs & Log Artifacts
+training_log*.txt
+*.log
+
+# Environments & Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# Node & Frontend Build Artifacts
+node_modules/
+.npm
+dist/
+build/
+.vercel
+
+# Secrets, Keys & Environment Variables
+.env
+*.env
+*.env.local
+credentials.json
+*.pem
+*.key
+
+# Python Cache & Compiled Files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# IDE & OS Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.bak
+*.swp

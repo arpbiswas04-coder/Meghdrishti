@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meghdrishti — GenAI Satellite Cloud Removal System | ISRO BAH 2026</title>
+  <meta name="description" content="GenAI-based cloud removal & atmospheric reconstruction system for optical satellite imagery using Swin Transformer GAN and Spatial Attention Modules. Built for ISRO's Bharatiya Antariksh Hackathon 2026.">
+  <meta name="theme-color" content="#050911">
+
+  <!-- Google Fonts: Michroma for headings, Outfit for body copy -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       FIXED NAVBAR (3-Column Grid Layout: Logo | Centered Nav | Status Pill)
+       ========================================================================== -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <!-- Left Column: Logo & Badge -->
+      <a href="#" class="brand" aria-label="Meghdrishti Home">
+        <img src="assets/meghdrishti-logo.png" alt="Meghdrishti Logo" class="nav-logo-mark">
+        <span class="badge-hackathon">ISRO BAH 2026</span>
+      </a>
+
+      <!-- Center Column: Mathematically Centered Navigation Links -->
+      <nav class="nav-menu">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#architecture" class="nav-link">Architecture</a>
+        <a href="#demo" class="nav-link btn-nav-demo">Launch Demo</a>
+      </nav>
+
+      <!-- Right Column: Model Health Indicator (Right-Aligned) -->
+      <div class="health-status-pill">
+        <div class="status-dot" id="statusDot"></div>
+        <span id="statusText">CHECKING MODEL...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SECTION 1: HERO (Video Background, Enlarged Logo + Idle Float, About & CTAs)
+       ========================================================================== -->
+  <section id="hero" class="hero-section">
+    <!-- Full-Bleed Video Background -->
+    <div class="hero-video-container">
+      <video class="hero-video" autoplay loop muted playsinline preload="metadata">
+        <source src="assets/video.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <!-- Enlarged Dominant Hero Logo with Entrance & Gentle Breathing Float -->
+      <div class="hero-logo-wrapper">
+        <img src="assets/meghdrishti-logo.png" alt="Meghdrishti Satellite Vision Logo" class="hero-logo-img">
+      </div>
+
+      <div class="hero-badge">
+        <svg class="icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M5.05 5.05l13.9 13.9M5.05 18.95l13.9-13.9"/></svg>
+        Swin Transformer GAN · Spatial Attention Architecture
+      </div>
+
+      <h1 class="hero-headline">
+        MEGHDRISHTI
+        <span class="headline-sub">GENAI CLOUD REMOVAL &amp; RECONSTRUCTION</span>
+      </h1>
+
+      <p class="hero-description">
+        Generative AI-powered atmospheric cloud restoration for <strong>LISS-IV</strong> and <strong>Sentinel-2</strong> optical satellite imagery. Combines Swin Transformer global context with spatial attention modules for accurate surface reconstruction.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hero-cta-group">
+        <a href="#architecture" class="btn btn-primary">
+          <span>Architecture &amp; Flow</span>
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </a>
+        <a href="https://arxiv.org/pdf/2009.13015" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+          <span>Original Research</span>
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <a href="#demo" class="btn btn-glow">
+          <span>Try Live Generator</span>
+          <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 2: TECHNICAL DETAILS & ARCHITECTURE (Continuous Fixed background.jpg)
+       ========================================================================== -->
+  <section id="architecture" class="section architecture-section">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="section-header scroll-reveal">
+        <div class="section-eyebrow">MODEL &amp; SYSTEM ARCHITECTURE</div>
+        <h2 class="section-title">Deep Learning Pipeline</h2>
+        <p class="section-subtitle">
+          From thick atmospheric cloud contamination to sub-meter reconstructed GeoTIFF telemetry.
+        </p>
+      </div>
+
+      <!-- Benchmarks Display Cards -->
+      <div class="benchmarks-grid">
+        <div class="metric-card scroll-reveal" style="--reveal-index: 0;">
+          <div class="metric-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <div class="metric-number">22.70 <span class="metric-unit">dB</span></div>
+          <div class="metric-title">PSNR Score</div>
+          <p class="metric-desc">Peak Signal-to-Noise Ratio evaluated across RICE1 &amp; RICE2 benchmarks.</p>
+        </div>
+
+        <div class="metric-card highlight-card scroll-reveal" style="--reveal-index: 1;">
+          <div class="metric-icon-box saffron">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="metric-number saffron">0.843</div>
+          <div class="metric-title">SSIM Index</div>
+          <p class="metric-desc">Structural Similarity Index measuring fine edge and texture preservation.</p>
+        </div>
+
+        <div class="metric-card scroll-reveal" style="--reveal-index: 2;">
+          <div class="metric-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <div class="metric-number">0.040</div>
+          <div class="metric-title">MAE (L1 Loss)</div>
+          <p class="metric-desc">Low pixel-level mean absolute error between synthetic ground truth and output.</p>
+        </div>
+
+        <div class="metric-card scroll-reveal" style="--reveal-index: 3;">
+          <div class="metric-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="metric-number">0.071</div>
+          <div class="metric-title">SAM (Spectral)</div>
+          <p class="metric-desc">Spectral Angle Mapper confirming color fidelity across optical bands.</p>
+        </div>
+      </div>
+
+      <!-- Process Flow Diagram Card -->
+      <div class="architecture-diagram-card scroll-reveal">
+        <h3 class="diagram-title">System Execution Flow</h3>
+        <p class="diagram-subtitle">End-to-End Processing from Satellite Input to Reconstructed GeoTIFF (Phase 1 Baseline)</p>
+
+        <!-- Stage Execution Flow Diagram -->
+        <div class="parallel-flow-container">
+          <!-- Sequential Intro: Stage 1 & Stage 2 -->
+          <div class="flow-sequence-block">
+            <div class="flow-node node-input scroll-reveal" style="--reveal-index: 0;">
+              <span class="node-badge">STAGE 1</span>
+              <div class="node-icon-svg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </div>
+              <div class="node-name">Cloudy Satellite Input</div>
+              <div class="node-sub">4-Band Optical (B2, B3, B4, B8) GeoTIFF · 256×256 Patches</div>
+            </div>
+
+            <div class="flow-arrow-down scroll-reveal" style="--reveal-index: 1;">↓</div>
+
+            <div class="flow-node node-process scroll-reveal" style="--reveal-index: 2;">
+              <span class="node-badge">STAGE 2</span>
+              <div class="node-icon-svg">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+              </div>
+              <div class="node-name">Preprocessing &amp; Alignment</div>
+              <div class="node-sub">Rasterio Reading · Normalization to [-1, 1] · CRS Preservation</div>
+            </div>
+          </div>
+
+          <!-- Parallel Branching: Stage 3 & Stage 4 -->
+          <div class="parallel-split-header scroll-reveal" style="--reveal-index: 3;">
+            <div class="split-line"></div>
+            <span class="split-label">PARALLEL PROCESSING BRANCHES</span>
+            <div class="split-line"></div>
+          </div>
+
+          <div class="parallel-branches-grid">
+            <!-- Branch A: Stage 3 Cloud Detection Head -->
+            <div class="branch-card scroll-reveal" id="drawerStage3" style="--reveal-index: 4;">
+              <div class="branch-header">
+                <span class="node-badge">STAGE 3</span>
+                <div class="node-icon-svg">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div class="node-name">Cloud Detection Head</div>
+                <div class="node-sub">3-Block Lightweight U-Net (32 → 64 → 128 channels)</div>
+                <button type="button" class="btn-drawer-toggle" aria-expanded="false">
+                  <span>Technical Breakdown</span>
+                  <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="drawer-content">
+                <ul class="detail-list">
+                  <li><strong>Architecture</strong>: Lightweight 3-block U-Net operating at feature scales of 32, 64, and 128 channels.</li>
+                  <li><strong>Supervision</strong>: Trained using CloudSEN12+ annotated cloud masks and pseudo-labelled confidence maps.</li>
+                  <li><strong>Output</strong>: Generates continuous cloud confidence probability maps and binary cloud masks with calculated cloud coverage percentage.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Branch B: Stage 4 SPANet Generator -->
+            <div class="branch-card highlight-branch scroll-reveal" id="drawerStage4" style="--reveal-index: 5;">
+              <div class="branch-header">
+                <span class="node-badge highlight">STAGE 4 (CORE)</span>
+                <div class="node-icon-svg saffron">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <div class="node-name">SPANet Generator</div>
+                <div class="node-sub">Encoder → Swin Transformer Bottleneck → Decoder + SAM Gates</div>
+                <button type="button" class="btn-drawer-toggle" aria-expanded="false">
+                  <span>Technical Breakdown</span>
+                  <svg class="arrow-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="drawer-content">
+                <ul class="detail-list">
+                  <li><strong>Encoder</strong>: 4 Convolutional DownBlocks expanding channel resolution from 64 to 512 channels to extract multi-scale spatial features.</li>
+                  <li><strong>Swin Transformer Bottleneck</strong>: 2 Swin Transformer blocks (dimension = 512, window size = 8, attention heads = 8). Captures <em>global image context</em>, enabling the network to reconstruct heavily obscured cloud regions by synthesizing information from distant cloud-free land cover.</li>
+                  <li><strong>Decoder with SAM Gates</strong>: 4 UpBlocks (512 → 64 channels) gated by Spatial Attention Modules (SAM) on every skip connection to concentrate reconstruction capacity specifically on cloud-affected pixels.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Convergence: Stage 5 -->
+          <div class="flow-convergence-arrow scroll-reveal" style="--reveal-index: 6;">↓</div>
+
+          <div class="flow-node node-output scroll-reveal" style="--reveal-index: 7;">
+            <span class="node-badge">STAGE 5</span>
+            <div class="node-icon-svg">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <div class="node-name">Cloud-Free GeoTIFF Output</div>
+            <div class="node-sub">Full 4-Band Reconstructed Raster · Preserved Geo-Metadata · REST API &amp; GIS Ready</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Multi-Scale Discriminator & Loss Subsection -->
+      <div class="loss-subsection-card scroll-reveal">
+        <h3 class="loss-title">Multi-Scale Discriminator &amp; Loss Formulation</h3>
+        <p class="loss-subtitle">Mathematical objectives driving spatial detail and spectral consistency</p>
+
+        <div class="discriminator-grid">
+          <div class="disc-card scroll-reveal" style="--reveal-index: 0;">
+            <div class="disc-tag">DISCRIMINATOR D1</div>
+            <h4 class="disc-title">256×256 PatchGAN</h4>
+            <p class="disc-desc">Evaluates local pixel patches to enforce high-frequency edge sharpness and fine texture realism.</p>
+          </div>
+          <div class="disc-card scroll-reveal" style="--reveal-index: 1;">
+            <div class="disc-tag">DISCRIMINATOR D2</div>
+            <h4 class="disc-title">128×128 PatchGAN</h4>
+            <p class="disc-desc">Evaluates downsampled global views to guarantee macro-level color balance and tonal coherence.</p>
+          </div>
+        </div>
+
+        <!-- Loss Formula Banner -->
+        <div class="loss-formula-box scroll-reveal" style="--reveal-index: 2;">
+          <div class="formula-header">COMBINED LOSS OBJECTIVE</div>
+          <div class="formula-math">
+            L_total = L1 + L_GAN + 0.10 × L_attn + 0.10 × L_perceptual + 0.05 × L_spectral
+          </div>
+        </div>
+
+        <div class="loss-terms-grid">
+          <div class="loss-term-item scroll-reveal" style="--reveal-index: 0;">
+            <span class="term-name">L1 Loss</span>
+            <p class="term-desc">Measures pixel-by-pixel mean absolute difference between reconstructed output and ground truth.</p>
+          </div>
+          <div class="loss-term-item scroll-reveal" style="--reveal-index: 1;">
+            <span class="term-name">L_GAN Loss</span>
+            <p class="term-desc">Adversarial score from D1 and D2 forcing the generator to produce realistic ground distributions.</p>
+          </div>
+          <div class="loss-term-item scroll-reveal" style="--reveal-index: 2;">
+            <span class="term-name">0.10 × L_attn</span>
+            <p class="term-desc">Ensures the Spatial Attention Modules accurately focus weights on cloud-affected pixels.</p>
+          </div>
+          <div class="loss-term-item scroll-reveal" style="--reveal-index: 3;">
+            <span class="term-name">0.10 × L_perceptual</span>
+            <p class="term-desc">VGG-16 feature map similarity (conv2_2 and conv3_3 layers) capturing high-level visual structure.</p>
+          </div>
+          <div class="loss-term-item full-width-term scroll-reveal" style="--reveal-index: 4;">
+            <span class="term-name">0.05 × L_spectral</span>
+            <p class="term-desc">Per-band mean and variance consistency in non-cloud regions — preserving scientific spectral integrity for downstream satellite data processing.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- "What We Improved" Comparison Section -->
+      <div class="comparison-section">
+        <h3 class="comparison-heading scroll-reveal">What We Improved</h3>
+        <p class="comparison-subheading scroll-reveal">Technical evolution from original baseline SpA-GAN (2020) to Meghdrishti (2026)</p>
+
+        <div class="table-responsive scroll-reveal">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature / Dimension</th>
+                <th class="baseline-col">Baseline (SpA-GAN 2020)</th>
+                <th class="meghdrishti-col">Meghdrishti (ISRO BAH 2026)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="scroll-reveal" style="--reveal-index: 0;">
+                <td class="feature-title">Main Generator Network</td>
+                <td class="baseline-val">Basic Convolutional Architecture</td>
+                <td class="meghdrishti-val">U-Net + Swin Transformer Bottleneck (Global Context)</td>
+              </tr>
+              <tr class="scroll-reveal" style="--reveal-index: 1;">
+                <td class="feature-title">Quality Discriminator</td>
+                <td class="baseline-val">Single-Level Discriminator</td>
+                <td class="meghdrishti-val">Two-Level Multi-Scale Discriminator (D1 + D2 PatchGAN)</td>
+              </tr>
+              <tr class="scroll-reveal" style="--reveal-index: 2;">
+                <td class="feature-title">Cloud Mask Generation</td>
+                <td class="baseline-val">Manual / Static Masking</td>
+                <td class="meghdrishti-val">Automated Dual Attention Cloud Detection Head</td>
+              </tr>
+              <tr class="scroll-reveal" style="--reveal-index: 3;">
+                <td class="feature-title">Loss Function Signal</td>
+                <td class="baseline-val">3 Basic Losses (L1, GAN, Attn)</td>
+                <td class="meghdrishti-val">4 Losses (Perceptual VGG-16 + Spectral SAM + GAN + Attn)</td>
+              </tr>
+              <tr class="scroll-reveal" style="--reveal-index: 4;">
+                <td class="feature-title">Deployment &amp; API</td>
+                <td class="baseline-val">Offline Research Script Only</td>
+                <td class="meghdrishti-val">FastAPI Server + Interactive Web Demo + Docker</td>
+              </tr>
+              <tr class="scroll-reveal" style="--reveal-index: 5;">
+                <td class="feature-title">Target Imagery &amp; Data</td>
+                <td class="baseline-val">Generic Google Earth RGB</td>
+                <td class="meghdrishti-val">RICE1 &amp; RICE2 Benchmarks (LISS-IV &amp; Sentinel-2)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tech Stack Badges -->
+      <div class="tech-stack-container" id="techStackContainer">
+        <h4 class="tech-stack-title scroll-reveal">Core Technology Stack</h4>
+        <div class="tech-badges" id="techBadges">
+          <span class="tech-badge" style="--badge-index: 0;">Python 3.11</span>
+          <span class="tech-badge" style="--badge-index: 1;">PyTorch (CUDA)</span>
+          <span class="tech-badge" style="--badge-index: 2;">timm (Swin Transformer)</span>
+          <span class="tech-badge" style="--badge-index: 3;">torchvision (VGG-16)</span>
+          <span class="tech-badge" style="--badge-index: 4;">rasterio (GeoTIFF)</span>
+          <span class="tech-badge" style="--badge-index: 5;">OpenCV</span>
+          <span class="tech-badge" style="--badge-index: 6;">FastAPI</span>
+          <span class="tech-badge" style="--badge-index: 7;">Docker</span>
+          <span class="tech-badge" style="--badge-index: 8;">Git</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 3: INTERACTIVE DEMO (Single Upload Dropzone & Translucent Cards)
+       ========================================================================== -->
+  <section id="demo" class="section demo-section">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="section-header scroll-reveal">
+        <div class="section-eyebrow">INTERACTIVE GENERATOR</div>
+        <h2 class="section-title">Satellite Cloud Removal Studio</h2>
+        <p class="section-subtitle">Upload cloudy optical imagery to execute AI reconstruction in real-time.</p>
+      </div>
+
+      <!-- Single Centered Upload Card Layout -->
+      <div class="single-upload-wrapper scroll-reveal">
+        <div class="upload-card" id="cloudyDropzone">
+          <input type="file" id="cloudyInput" accept="image/*,.tif,.tiff">
+          <span class="upload-badge required">Cloudy Optical Input</span>
+          <div class="upload-icon-svg">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          </div>
+          <h3 class="upload-title">Select or Drop Satellite Image</h3>
+          <p class="upload-desc">Drag &amp; drop or click to select LISS-IV / Sentinel optical raster image</p>
+          <div class="file-format-tags">
+            <span class="tag">GeoTIFF (.tif)</span>
+            <span class="tag">PNG</span>
+            <span class="tag">JPG</span>
+          </div>
+
+          <!-- Preview Overlay -->
+          <div class="preview-container" id="cloudyPreview">
+            <img class="preview-img" id="cloudyPreviewImg" src="" alt="Cloudy Preview">
+            <div class="preview-overlay">
+              <div class="file-info">
+                <div class="file-name" id="cloudyFileName">satellite.tif</div>
+                <div class="file-meta" id="cloudyFileMeta">1.4 MB • GeoTIFF</div>
+              </div>
+              <button type="button" class="btn-remove" id="removeCloudyBtn" title="Remove File">✕</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Execution Action Button -->
+      <div class="action-area scroll-reveal">
+        <button type="button" class="btn-execute" id="executeBtn" disabled>
+          <span class="btn-execute-glow"></span>
+          <span class="btn-execute-text" id="btnText">EXECUTE CLOUD REMOVAL</span>
+        </button>
+      </div>
+
+      <!-- Radar Beam Processing Loader Overlay -->
+      <div class="radar-loader-card" id="radarLoader" style="display: none;">
+        <div class="radar-sweep-box">
+          <div class="radar-grid-bg"></div>
+          <div class="radar-beam"></div>
+          <div class="radar-center-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49M7.76 16.24a6 6 0 0 1 0-8.49"/></svg>
+          </div>
+        </div>
+        <div class="radar-loader-text">
+          <div class="radar-status-title">EXECUTING SWIN TRANSFORMER GAN...</div>
+          <div class="radar-status-sub">Inferencing spatial attention masks and spectral features</div>
+        </div>
+      </div>
+
+      <!-- Results Display Section -->
+      <div class="results-section" id="resultsSection" style="display: none;">
+        <div class="results-header">
+          <h3 class="results-title">Reconstructed Telemetry Output</h3>
+          <p class="results-subtitle">Drag the center handle horizontally to wipe away atmospheric clouds</p>
+        </div>
+
+        <!-- Before / After Interactive Slider -->
+        <div class="comparison-slider-wrapper" id="sliderWrapper">
+          <!-- Background: Reconstructed / Clean Output Image -->
+          <img class="slider-img output-img" id="outputImg" src="" alt="Reconstructed Cloud-Free Image">
+          <span class="slider-badge badge-after">Reconstructed (Cloud-Free)</span>
+
+          <!-- Foreground Clipped Container: Original Cloudy Image -->
+          <div class="slider-clip" id="sliderClip">
+            <img class="slider-img input-img" id="inputImg" src="" alt="Original Cloudy Image">
+            <span class="slider-badge badge-before">Original (Cloudy Input)</span>
+          </div>
+
+          <!-- Interactive Drag Handle Divider -->
+          <div class="slider-handle" id="sliderHandle">
+            <div class="handle-line"></div>
+            <div class="handle-button">
+              <span class="handle-arrow">◀</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/></svg>
+              <span class="handle-arrow">▶</span>
+            </div>
+            <div class="handle-line"></div>
+          </div>
+        </div>
+
+        <!-- Telemetry Results Metrics Grid -->
+        <div class="results-metrics-grid">
+          <div class="res-metric-card scroll-reveal" style="--reveal-index: 0;">
+            <div class="res-metric-label">Estimated Cloud Coverage</div>
+            <div class="res-metric-val" id="metricCoverage">-- %</div>
+          </div>
+          <div class="res-metric-card scroll-reveal" style="--reveal-index: 1;">
+            <div class="res-metric-label">Predicted PSNR</div>
+            <div class="res-metric-val highlight-cyan" id="metricPsnr">-- dB</div>
+          </div>
+          <div class="res-metric-card scroll-reveal" style="--reveal-index: 2;">
+            <div class="res-metric-label">Predicted SSIM</div>
+            <div class="res-metric-val highlight-saffron" id="metricSsim">--</div>
+          </div>
+          <div class="res-metric-card scroll-reveal" style="--reveal-index: 3;">
+            <div class="res-metric-label">Inference Latency</div>
+            <div class="res-metric-val" id="metricLatency">-- ms</div>
+          </div>
+        </div>
+
+        <!-- Download Action -->
+        <div class="download-action-bar">
+          <a id="downloadBtn" class="btn btn-primary btn-download" download="meghdrishti_reconstructed.png">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download Reconstructed Image</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Inline Diagnostic Toast (No Browser Alerts) -->
+      <div class="diagnostic-toast" id="diagnosticToast" style="display: none;">
+        <svg class="toast-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span class="toast-message" id="toastMessage">An error occurred during inference.</span>
+        <button type="button" class="toast-close" id="toastClose">✕</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/meghdrishti-logo.png" alt="Meghdrishti Logo" class="footer-logo">
+      </div>
+      <p class="footer-text">
+        Developed for ISRO Bharatiya Antariksh Hackathon 2026.
+      </p>
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#demo">Demo</a>
+        <a href="https://arxiv.org/pdf/2009.13015" target="_blank" rel="noopener noreferrer">SpA-GAN Paper</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+</body>
+</html>
